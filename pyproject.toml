@@ -1,0 +1,43 @@
+[project]
+name = "fastapi-boilerplate"
+version = "0.1.0"
+description = "Production-ready FastAPI boilerplate"
+authors = [{ name = "Bavithra" }]
+requires-python = ">=3.11"
+
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    "pydantic",
+    "pydantic-settings"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "httpx",
+    "ruff",
+    "black",
+    "pre-commit"
+]
+
+# -------- BLACK --------
+[tool.black]
+line-length = 88
+target-version = ["py311"]
+
+# -------- RUFF --------
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+
+# -------- PYTEST --------
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.setuptools.packages.find]
+include = ["app*"]
+exclude = ["boil*", "tests*"]
