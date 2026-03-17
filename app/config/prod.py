@@ -1,6 +1,5 @@
-from .base import BaseSettings
+from .base import BaseSettingsConfig
 
 
-class ProdSettings(BaseSettings):
-    ENV: str = "prod"
+class ProdSettings(BaseSettingsConfig):
     DEBUG: bool = False

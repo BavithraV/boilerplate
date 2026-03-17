@@ -1,8 +1,9 @@
-from pydantic_settings import BaseSettings, SettingsConfigDict
+from pydantic_settings import BaseSettings
 
 
 class BaseSettingsConfig(BaseSettings):
-    model_config = SettingsConfigDict(env_file=".env")
-
     PROJECT_NAME: str = "FastAPI Boilerplate"
-    VERSION: str = "1.0"
+    VERSION: str = "1.0.0"
+
+    class Config:
+        env_file = ".env"

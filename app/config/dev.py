@@ -1,6 +1,5 @@
-from .base import BaseSettings
+from .base import BaseSettingsConfig
 
 
-class DevSettings(BaseSettings):
-    ENV: str = "dev"
+class DevSettings(BaseSettingsConfig):
     DEBUG: bool = True
