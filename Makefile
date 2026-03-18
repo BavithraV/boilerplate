@@ -24,3 +24,8 @@ format:
 # Pre-commit
 precommit:
 	pre-commit run --all-files
+
+
+sonar:
+	pytest --cov=app --cov-report=xml
+	sonar-scanner -Dsonar.host.url=http://localhost:9001 -Dsonar.login=$(SONAR_TOKEN)

@@ -1,15 +1,16 @@
 from fastapi import APIRouter
 
-from app.schemas.sample_schema import SampleRequest, SampleResponse
-from app.services.sample_service import SampleService
+from app.core.logger import get_logger
+from app.schemas.sample_schema import RatingRequest, RatingResponse
+from app.services.sample_service import RatingService
+
+logger = get_logger(__name__)
 
 router = APIRouter()
+service = RatingService()
 
-service = SampleService()
 
-
-@router.post("/sample", response_model=SampleResponse)
-def sample_endpoint(payload: SampleRequest):
-    message = service.process(payload.name)
-
-    return {"message": message}
+@router.post("/evaluate", response_model=RatingResponse)
+def evaluate_rating(request: RatingRequest):
+    logger.info("API /evaluate called")
+    return service.evaluate(request)

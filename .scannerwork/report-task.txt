@@ -1,0 +1,6 @@
+projectKey=fastapi-boilerplate
+serverUrl=http://localhost:9001
+serverVersion=26.3.0.120487
+dashboardUrl=http://localhost:9001/dashboard?id=fastapi-boilerplate
+ceTaskId=5749b216-60b0-4fcc-a511-daa0719c47ef
+ceTaskUrl=http://localhost:9001/api/ce/task?id=5749b216-60b0-4fcc-a511-daa0719c47ef
