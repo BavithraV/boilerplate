@@ -9,6 +9,11 @@ boil/
 # Env files
 .env
 
+# Coverage files
+.coverage
+coverage.xml
+
 # OS
 .DS_Store 
+
 
