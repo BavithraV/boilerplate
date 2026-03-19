@@ -16,4 +16,4 @@ coverage.xml
 # OS
 .DS_Store 
 
-
+.secrets.baseline

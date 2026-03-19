@@ -2,7 +2,10 @@ from unittest.mock import patch
 
 from fastapi.testclient import TestClient
 
+from app.core.logger import get_logger
 from app.main import app
+
+logger = get_logger(__name__)
 
 client = TestClient(app)
 
@@ -20,7 +23,7 @@ def test_evaluate_rating_success(mock_llm):
     payload = {"dm_response": "Explains Good", "reporter_response": "Understood Good"}
 
     response = client.post("/api/v1/evaluate", json=payload)
-
+    logger.info("Waiting for response")
     assert response.status_code == 200
 
     data = response.json()

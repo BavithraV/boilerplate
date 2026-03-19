@@ -9,6 +9,7 @@ dependencies = [
     "fastapi",
     "uvicorn",
     "pydantic",
+    "boto3",
     "pydantic-settings"
 ]
 

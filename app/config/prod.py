@@ -1,5 +1,5 @@
-from .base import BaseSettingsConfig
+from .base import BaseSettings
 
 
-class ProdSettings(BaseSettingsConfig):
+class ProdSettings(BaseSettings):
     DEBUG: bool = False
