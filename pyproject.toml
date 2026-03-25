@@ -1,0 +1,68 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "azure-native-rag-backend"
+version = "0.1.0"
+description = "Azure-native RAG boilerplate with FastAPI, Azure Functions, Azure AI Search, Azure OpenAI, and Key Vault integration."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi",
+  "uvicorn[standard]",
+  "python-multipart",
+  "pydantic",
+  "SQLAlchemy",
+  "psycopg2-binary",
+  "alembic",
+  "azure-storage-blob",
+  "azure-search-documents",
+  "azure-functions",
+  "azure-identity",
+  "azure-keyvault-secrets",
+  "openai",
+  "pandas",
+  "openpyxl",
+  "httpx",
+  "requests",
+  "PyJWT",
+  "python-json-logger",
+  "tenacity",
+]
+
+[project.optional-dependencies]
+dev = [
+  "black",
+  "ruff",
+  "pytest",
+  "pre-commit",
+  "detect-secrets",
+]
+
+[tool.setuptools.packages.find]
+include = ["app*"]
+
+[tool.black]
+line-length = 88
+target-version = ["py311"]
+include = "\\.pyi?$"
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+src = ["app", "tests", "azure_functions"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "N", "C4", "SIM"]
+ignore = ["B008"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "lf"
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+addopts = "-q"
